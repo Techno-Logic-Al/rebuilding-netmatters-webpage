@@ -1,0 +1,210 @@
+@use '../variables/color';
+@use '../utilities/media-query' as mq;
+@use 'sass:map';
+@use '../variables/services';
+
+
+#services-container {
+    padding: 50px 15px;
+    margin: 0 auto;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "services-header"
+        "services-container"
+        "services-link";
+}
+
+#services-header {
+    grid-area: services-header;
+    justify-self: left;
+
+    h2 {
+        font-size: 2.7rem;
+        font-weight: 400;
+    }
+}
+
+#services-list {
+    grid-area: services-container;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+    padding-top: 45px;
+}
+
+%services-item {
+    display: flex;
+    row-gap: 1rem;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 2rem;
+    box-shadow: 0 3px 35px rgba(0, 0, 0, .1);
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    position: relative;
+
+    > a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    > div {
+        border-radius: 50%;
+        padding: 15px;
+        color: color.$text--light;
+        font-size: 32px;
+    }
+
+    h3,
+    p {
+        margin: 0;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        color: color.$text--dark;
+        font-weight: 400;
+        line-height: 1.1;
+        min-height: 3rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+        line-height: 1.37;
+    }
+
+    .read-more {
+        color: color.$text--light;
+        line-height: 35px;
+        text-transform: uppercase;
+        border-radius: 5px;
+        padding: 5px 15px;
+        font-weight: 400;
+        font-size: 1rem;
+        border: 1px solid transparent;
+    }
+
+    .service-content {
+        flex-grow: 1;
+    }
+}
+
+// Loop: generate styles for $service, $color from services.$list 
+@each $service, $color in services.$list {
+    .services-item-#{$service} {
+
+        @extend %services-item;
+
+        div,
+        .read-more {
+            background-color: $color;
+        }
+    }
+        .services-item-#{$service}:hover {
+            
+            background-color: $color;
+            translate: 0 -10px;
+            transition: .5s ease;
+
+            h3,
+            p {
+                color: color.$text--light;
+            }
+
+            div,
+            .read-more {
+                background-color: color.$bg--light;
+                color: $color;
+            }
+    }
+}
+
+.services-item-dev .read-more {
+    background-color: #f7b322;
+}
+
+#services-link {
+    grid-area: services-link;
+
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: color.$text--dark;
+    text-decoration: none;
+    justify-self: center;
+    color: #333645;
+
+    position: absolute;
+    bottom: -55px; 
+}
+
+@include mq.set-breakpoint('768') {
+    #services-container {
+        grid-template-columns: 2fr;
+        grid-template-areas:
+            "services-header services-link"  
+            "services-container services-container";
+    }
+
+    #services-list {
+        padding-top: 50px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #services-link {
+        font-size: 2.25rem;
+        margin: 0;
+        position: relative;
+        bottom: -15px;
+        align-self: auto;
+    }
+
+    .services-item-dev,
+    .services-item-support,
+    .services-item-marketing {
+        grid-column: span 2;
+    }
+}
+
+@include mq.set-breakpoint('992') {
+    #services-list {
+        padding-top: 50px;
+        grid-template-columns: repeat(6, 1fr);
+
+    }
+
+    .services-item-telecoms,
+    .services-item-webdesign,
+    .services-item-security,
+    .services-item-course {
+        grid-column: span 3;
+    }
+}
+
+@include mq.set-breakpoint('1260') {
+    #services-list {
+        grid-template-columns: repeat(12,1fr)
+    }
+
+    .services-item-dev,
+    .services-item-support,
+    .services-item-marketing {
+        grid-column: span 4;
+    }
+
+    .services-item-telecoms,
+    .services-item-webdesign,
+    .services-item-security,
+    .services-item-course {
+        grid-column: span 3;
+    }
+}

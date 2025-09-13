@@ -1,0 +1,186 @@
+@use '../variables/color';
+@use '../utilities/typography';
+@use '../utilities/media-query' as mq;
+
+#footer-main,
+#footer-copy {
+    color: color.$text--light;
+    
+    p {
+        margin: 0;
+    }
+}
+
+#footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "footer-logo"
+        "footer-social"
+        "footer-nav";
+}
+
+#footer-main {
+    padding-top: 27px;
+    color: color.$text--light;
+    background-color: color.$brand--normal;
+    overflow: hidden;
+}
+
+#footer-copy {
+    color: color.$text--light;
+    background-color: color.$brand--dark;
+}
+
+#footer-main h4 { 
+    margin-bottom: 26px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+#footer-social,
+#footer-about,
+#footer-services,
+#footer-industries,
+#footer-locations {
+    margin-bottom: 2rem;
+}
+
+#footer-copy,
+#footer-nav {
+    font-size: .8125rem;
+    line-height: 1.375;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.25rem;
+
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        a {
+            color: color.$text--light;
+            text-decoration: none;
+      // Pseudo selector 'hover' state or element
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+#footer-logo {
+    grid-area: footer-logo;
+}
+
+#footer-logo img{
+    width: 250px;
+    margin-bottom: 24px;
+
+}
+
+#footer-social {
+    grid-area: footer-social;
+    font-size: 26px;
+
+    div {
+        display: flex;
+        flex-direction: row;
+// Space between grid/flex children
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        width: 250px;
+    }
+    
+    a {
+        color: #fff;
+        background-color: color.$brand--dark;
+        display: inline-block;
+        padding: 12px 2rem;
+        text-align: center;
+
+        &.i-facebook:hover {
+            background-color: #3b5998;
+        }
+
+        &.i-linkedin:hover {
+            background-color: #0077b5;
+        }
+
+        &.i-twitter:hover {
+            background-color: #00aced;
+        }
+
+        &.i-instagram:hover {
+            background-color: #d93175;
+        }
+    }
+}
+
+#footer-nav {
+    grid-area: footer-nav;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#footer-copy {
+    padding: 10px 0;
+    p:last-of-type {
+        display: none;
+    }
+}
+
+@include mq.set-breakpoint('480') {
+    #footer-logo img{
+        width: 320px
+    }
+}
+
+@include mq.set-breakpoint('768') {
+    #footer-logo img{
+        width: 320px
+    }
+
+    #footer-social {
+        a {
+            padding: 12px 1rem;
+        }
+
+        div {
+            width: auto;
+        }
+    }
+
+
+    #footer-nav {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #footer-copy {
+        p,
+        p:last-of-type,
+        ul {
+            display: inline-block;
+        }
+    }
+}
+
+@include mq.set-breakpoint('992') {
+    #footer-nav {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@include mq.set-breakpoint('1260') {
+    #footer-top {
+        grid-template-columns: min-content 1fr;
+        grid-template-rows: max-content 1fr;
+        column-gap: 4rem;
+        grid-template-areas: 
+            "footer-logo footer-nav"
+            "footer-social footer-nav";
+    }
+}

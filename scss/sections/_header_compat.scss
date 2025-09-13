@@ -1,0 +1,30 @@
+@use '../utilities/media-query' as mq;
+
+// Header compat mapping: apply original header computed values to this markup
+
+@include mq.set-breakpoint('992') {
+  // Actions buttons (Support/Contact) → header .inner .actions .btn
+  #header-support,
+  #header-contact {
+    display: inline-flex;
+    align-items: center;
+    height: 56px;
+    line-height: 46px;
+    font-size: 1.125rem;
+    padding: 0 15px;
+    column-gap: 5px;
+  }
+
+  // Icon spacing inside actions
+  #header-support i,
+  #header-contact i { margin-right: 5px; }
+
+  // Use a uniform grid gap so all gaps are equal
+  #header-top > div { column-gap: 20px; }
+
+  // Ensure no extra margins creep in between items
+  #header-support,
+  #header-contact,
+  #header-form,
+  #header-menu { margin: 0; }
+}

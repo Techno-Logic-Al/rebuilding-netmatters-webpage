@@ -1,0 +1,220 @@
+@use '../variables/color';
+@use '../utilities/media-query' as mq;
+@use '../utilities/typography';
+@use 'sass:map';
+// Import built-in Sass module: sass:map
+@use 'sass:color' as sass-color;
+// Import built-in Sass module: sass:color
+@use '../variables/services';
+
+#site-nav {
+    display: none;
+    background-color: color.$bg--normal;
+    
+    // Remove default link underlines within site nav
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+        color: color.$text--light;
+        text-transform: uppercase;
+    }
+
+    span {
+        display: block;
+        font-size: 10px;
+    }
+
+    @include mq.set-breakpoint('992') {
+        display: block;
+        // Default desktop (>=992px and <1260px): match original 117px bar
+        height: 117px;
+        position: relative; // anchor dropdowns to the full nav width (viewport)
+        overflow: visible;
+        // Avoid first-paint hairline by drawing a 1px inset shadow at bottom (behind children)
+        box-shadow: inset 0 -1px 0 color.$bg--normal;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        will-change: transform;
+        // Typography for labels under icons
+        p { font-size: 18px; line-height: 18px; }
+        span { font-size: 10px; line-height: 10px; }
+    }
+
+    // Large desktop (>=1260px): bar reduces to 99px height
+    @include mq.set-breakpoint('1260') {
+        height: 99px;
+    }
+}
+
+#site-nav > .container {
+    padding: 0 15px;
+}
+
+#site-nav > ul {
+    margin: 0 auto;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-evenly;
+
+    text-align: center; 
+    
+    list-style: none;
+
+    > li {
+        width: 100%;
+    }
+
+    i { padding-bottom: 10px; }
+
+    // Desktop (>=992px): align to original computed dimensions
+    @include mq.set-breakpoint('992') {
+        padding: 0;              // no extra padding on the bar
+        height: 117px;           // default desktop height
+        align-items: stretch;    // make children fill bar height
+
+        > li { height: 117px; /* no positioning here to keep dropdown width full */ }
+
+        // Icon size (affects ::before glyph box) - use whole pixels to avoid subpixel seams
+        i { font-size: 24px; line-height: 24px; }
+    }
+
+    // Large desktop (>=1260px): reduce heights to 99px
+    @include mq.set-breakpoint('1260') {
+        height: 99px;
+        > li { height: 99px; /* keep static positioning */ }
+    }
+}
+
+// Loop: generate styles for $service, $color from services.$list 
+@each $service, $color in services.$list {
+
+    .nav-#{$service} {
+
+        > a {
+            display: block;
+            padding: 15px 0;
+        }
+
+        &:hover,
+        &:focus-within {
+
+            background-color: $color;
+            & > a,
+            & > a > i {
+                color: color.$text--light;
+                text-decoration: none;
+            }
+            
+            &::after {
+                content: "";
+                width: 0px;
+                height: 0px;
+                border-style: solid;
+                border-color: $color transparent transparent transparent;
+                transform: rotate(0deg);
+                position: absolute;
+                top: 100%;
+                border-width: 35px 67.14px 0 67.14px;
+                translate: -67.14px;
+
+                @include mq.set-breakpoint('1260') {
+                    border-width: 35px 83.57px 0 83.57px;
+                    translate: -83.57px;
+                }
+            }
+
+            .nav-dropdown-#{$service} {
+                background-color: sass-color.scale($color, $lightness: -15%);
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                transform: none;
+                width: auto;
+                max-width: 100vw;
+                padding: 45px 0;
+                justify-content: center;
+
+                > div {
+                    @include mq.set-breakpoint('992') {
+                        width: 970px;
+                    }
+                    @include mq.set-breakpoint('1260') {
+                        width: 1200px;
+                    }
+                }
+
+                h2 {
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    .nav-#{$service} > a > i { color: $color; }
+
+    .nav-dropdown-#{$service} {
+        color: color.$text--light;
+        display: none;
+    }
+
+    @include mq.set-breakpoint('992') {
+        .nav-#{$service} > a {
+            padding-top: 19px;
+            padding-bottom: 18px;
+            min-height: 63px;
+        }
+    }
+
+    @include mq.set-breakpoint('1260') {
+        .nav-#{$service} > a {
+            padding-top: 19px;
+            padding-bottom: 18px;
+            min-height: 62px;
+        }
+    }
+}
+
+.dropdown-title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.dropdown-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    > li > a {
+        display: flex;
+        color: color.$text--light;
+        text-decoration: none;
+        width: 100%;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    > li {
+        width: 33%;
+        margin-top: 15px;
+        text-align: left;
+    }
+
+    i {
+        margin-right: 1rem;
+    }
+}
+
+

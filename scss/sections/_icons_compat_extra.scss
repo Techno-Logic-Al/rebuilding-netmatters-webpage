@@ -1,0 +1,14 @@
+// Extra icon mappings for exact match
+%icomoon { font-family: "icomoon" !important; font-weight: normal; font-style: normal; }
+
+// Cyber Security icon (shield)
+.fa-shield-halved:before, .fa-shield:before, .fa-lock:before { @extend %icomoon; content: "\E900"; }
+
+// Developer Course icon uses Material-Design-Icons (E8DE)
+.fa-graduation-cap:before {
+  font-family: "Material-Design-Icons" !important;
+  font-weight: normal;
+  font-style: normal;
+  content: "\E8DE";
+}
+

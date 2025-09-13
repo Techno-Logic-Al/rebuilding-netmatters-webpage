@@ -1,0 +1,28 @@
+
+
+@use 'variables' as v;
+
+
+@mixin fa-icon($family: v.$family) {
+  --_#{v.$css-prefix}-family: var(--#{v.$css-prefix}-family, var(--#{v.$css-prefix}-style-family, '#{$family}'));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: var(--#{v.$css-prefix}-display, #{v.$display});
+  font-family: var(--_#{v.$css-prefix}-family);
+  font-feature-settings: normal;
+  font-style: normal;
+  font-synthesis: none;
+  font-variant: normal;
+  font-weight: var(--#{v.$css-prefix}-style, #{v.$style});
+  line-height: 1;
+  text-align: center;
+  text-rendering: auto;
+  width: var(--#{v.$css-prefix}-width, #{v.$fw-width});
+}
+
+
+@mixin fa-size ($font-size) {
+  font-size: calc(#{$font-size} / #{v.$size-scale-base} * 1em); 
+  line-height: calc(1 / #{$font-size} * 1em); 
+  vertical-align: calc(((6 / #{$font-size}) - (3 / 8)) * 1em); 
+}

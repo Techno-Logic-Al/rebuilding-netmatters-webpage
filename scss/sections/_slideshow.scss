@@ -1,0 +1,125 @@
+@use '../variables/color';
+@use '../utilities/media-query' as mq;
+// Import built-in Sass module: sass:map
+@use 'sass:map';
+// Import built-in Sass module: sass:color
+@use 'sass:color' as sass-color;
+@use '../variables/services';
+#slideshow-list {
+    height: 550px;
+    width: 100%; // ensure banner fits the viewport width
+    overflow-x: hidden; // guard against accidental horizontal overflow
+}
+
+#section-hero,
+.slideshow-item {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.slideshow-item {
+    height: 100%;
+    position: relative;
+// Stacking order (higher = on top)
+    z-index: 0;
+
+// Pseudo selector 'before' state or element
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.5);
+// Stacking order (higher = on top)
+        z-index: -1;
+    }
+}
+
+.slideshow-content {
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h2,
+    p,
+    a {
+        text-align: center;
+        margin: 1rem 0;
+        color: color.$text--light;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    a {
+        font-size: 1.25rem;
+        padding: 5px 20px;
+        line-height: 50px;
+        text-transform: uppercase;
+        border-radius: 3px; // match site-wide button radius
+    }
+}
+
+#slideshow-scroll {
+    display: none;
+}
+
+.slideshow-item[data-slideshow-num="1"] {
+    background: url("../assets/images/slideshow/slideshow-1.webp");
+    background-position: top;
+    background-size: cover;
+}
+
+// Loop: generate styles for $service, $color from services.$list 
+@each $service, $color in services.$list {
+    .news-more--#{$service} {
+        background-color: $color;
+        text-decoration: none;
+    }
+
+    .news-more--#{$service}:hover {
+        background-color: sass-color.scale($color, $lightness: -15%);
+        text-decoration: none;
+    }
+}
+
+@include mq.set-breakpoint('992') {
+    .slideshow-item::before {
+        background: rgba(0,0,0,0.5) linear-gradient(270deg, transparent 25%, #000);
+    }
+    .slideshow-content {
+// Cross-axis alignment in flex/grid
+        align-items: flex-start;
+
+        h2 {
+            font-size: 64px;
+            line-height: 80px;
+            text-align: left;
+        }
+
+        p {
+            font-size: 26px;
+            line-height: 48px;
+            text-align: left;
+        }
+    }
+  }
+
+@include mq.set-breakpoint('1260') {
+    .slideshow-item::before {
+        background: linear-gradient(270deg, transparent 25%, #000);
+    }
+}

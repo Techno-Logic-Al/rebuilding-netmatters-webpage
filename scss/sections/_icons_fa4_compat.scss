@@ -1,0 +1,9 @@
+// Map specific Font Awesome classes to the original FontAwesome v4 codepoints
+
+.fa-clipboard:before, .fa-paste:before { font-family: "FontAwesome" !important; content: "\F0EA"; }
+.fa-download:before { font-family: "FontAwesome" !important; content: "\F019"; }
+.fa-folder-open:before { font-family: "FontAwesome" !important; content: "\F07C"; }
+.fa-clock:before, .fa-clock-o:before { font-family: "FontAwesome" !important; content: "\F017"; }
+.fa-search:before { font-family: "FontAwesome" !important; content: "\F002"; }
+.fa-star:before { font-family: "FontAwesome" !important; content: "\F005"; }
+

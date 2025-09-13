@@ -1,0 +1,43 @@
+// Dropdown list icon compatibility overrides to match original site visuals
+
+// Fonts used:
+// - FontAwesome (v4) via "FontAwesome" family
+// - Glyphicons via "Glyphicons Halflings" family
+// - Material Design Icons via "Material-Design-Icons" family
+// - IcoMoon via "icomoon" family
+
+// Consultancy & Development
+.nav-dev .dropdown-list .fa-cogs:before { font-family: "FontAwesome" !important; content: "\F085"; }
+.nav-dev .dropdown-list .fa-briefcase:before { font-family: "Glyphicons Halflings" !important; content: "\E139"; }
+.nav-dev .dropdown-list .fa-arrow-right-arrow-left:before { font-family: "Glyphicons Halflings" !important; content: "\E178"; }
+.nav-dev .dropdown-list .fa-laptop:before { font-family: "FontAwesome" !important; content: "\F109"; }
+.nav-dev .dropdown-list .fa-globe:before { font-family: "FontAwesome" !important; content: "\F0AC"; }
+
+// IT Support
+.nav-support .dropdown-list .fa-headphones:before { font-family: "Glyphicons Halflings" !important; content: "\E035"; }
+.nav-support .dropdown-list .fa-briefcase:before { font-family: "FontAwesome" !important; content: "\F0B1"; }
+.nav-support .dropdown-list .fa-laptop:before { font-family: "FontAwesome" !important; content: "\F109"; }
+.nav-support .dropdown-list .fa-hdd:before { font-family: "Glyphicons Halflings" !important; content: "\E121"; }
+
+// Digital Marketing
+.nav-marketing .dropdown-list .fa-users:before { font-family: "FontAwesome" !important; content: "\F0C0"; }
+
+// Telecoms Services
+.nav-telecoms .dropdown-list .fa-ticket:before { font-family: "FontAwesome" !important; content: "\F145"; }
+.nav-telecoms .dropdown-list .fa-phone-square:before { font-family: "FontAwesome" !important; content: "\F098"; }
+// Default phone icon for telecoms list, then override specific item below
+.nav-telecoms .dropdown-list .fa-phone:before { font-family: "FontAwesome" !important; content: "\F095"; }
+// 3CX Systems (6th item) uses MDI phone-in-talk
+.nav-telecoms .dropdown-list > li:nth-child(6) i.fa-phone:before { font-family: "Material-Design-Icons" !important; content: "\E8B6"; }
+
+// Web Design
+.nav-webdesign .dropdown-list .fa-cart-shopping:before { font-family: "Glyphicons Halflings" !important; content: "\E116"; }
+.nav-webdesign .dropdown-list .fa-desktop:before { font-family: "FontAwesome" !important; content: "\F108"; }
+.nav-webdesign .dropdown-list .fa-phone:before { font-family: "Glyphicons Halflings" !important; content: "\E145"; }
+
+// Developer Course
+.nav-course .dropdown-list .fa-laptop:before { font-family: "FontAwesome" !important; content: "\F109"; }
+.nav-course .dropdown-list .fa-handshake:before { font-family: "icomoon" !important; content: "\E910"; }
+// Match FA v4 style for question/help icon
+.nav-course .dropdown-list .fa-circle-question:before { font-family: "FontAwesome" !important; content: "\F059"; }
+

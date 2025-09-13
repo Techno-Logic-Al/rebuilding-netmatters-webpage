@@ -1,0 +1,9 @@
+// Service cards icon compatibility to match original site
+// Telecoms service card: use IcoMoon phone-in-talk glyph
+.services-item-telecoms i.fa-phone-volume:before {
+  font-family: "icomoon" !important;
+  font-weight: normal;
+  font-style: normal;
+  content: "\E902";
+}
+

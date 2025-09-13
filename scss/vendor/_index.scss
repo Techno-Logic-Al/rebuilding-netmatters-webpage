@@ -1,0 +1,23 @@
+
+
+
+@use 'modern-normalize';
+
+
+@use './fontawesome/variables' with (
+
+  $font-path: '../assets/fonts',
+);
+
+
+@use './fontawesome/fontawesome';
+
+
+@use './fontawesome/fa' as fa;
+
+
+@use './fontawesome/solid' as fa-solid;
+@use './fontawesome/brands' as fa-brands;
+
+// Local font faces and custom icon font (icomoon)
+@use './fonts';

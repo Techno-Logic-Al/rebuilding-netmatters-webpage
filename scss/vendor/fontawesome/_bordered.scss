@@ -1,0 +1,16 @@
+
+
+@use 'variables' as v;
+
+
+
+
+
+.#{v.$css-prefix}-border {
+  border-color: var(--#{v.$css-prefix}-border-color, #{v.$border-color});
+  border-radius: var(--#{v.$css-prefix}-border-radius, #{v.$border-radius});
+  border-style: var(--#{v.$css-prefix}-border-style, #{v.$border-style});
+  border-width: var(--#{v.$css-prefix}-border-width, #{v.$border-width});
+  box-sizing: var(--#{v.$css-prefix}-border-box-sizing, #{v.$border-box-sizing});
+  padding: var(--#{v.$css-prefix}-border-padding, #{v.$border-padding});
+}

@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-v15-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-v15-latin-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-v15-latin-600italic.woff2") format("woff2");
+}
+
+/* Optional medium weight if used */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-medium-webfont.woff2") format("woff2");
+}
+
+/* Icomoon icon font for mobile header phone icon */
+@font-face {
+  font-family: "icomoon";
+  src: url("../assets/fonts/icomoon.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Material Design Icons (required for exact developer course icon)
+@font-face {
+  font-family: "Material-Design-Icons";
+  src: url("../assets/fonts/Material-Design-Icons.woff") format("woff"),
+       url("../assets/fonts/Material-Design-Icons.ttf") format("truetype"),
+       url("../assets/fonts/Material-Design-Icons.eot");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Font Awesome 4 (for legacy icon codepoints from original)
+@font-face {
+  font-family: "FontAwesome";
+  src: url("../assets/fonts/fontawesome-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Glyphicons Halflings (to match original Glyphicon-based icons)
+@font-face {
+  font-family: "Glyphicons Halflings";
+  src: url("../assets/fonts/glyphicons-halflings-regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.icomoon-icon,
+#header-icon {
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-phone_in_talk:before {
+  content: "\E902";
+}

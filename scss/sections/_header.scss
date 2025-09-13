@@ -1,0 +1,461 @@
+@use '../variables/color';
+@use '../utilities/media-query' as mq;
+
+#header-top {
+    padding: 20px 0;
+    background-color: color.$bg--light;
+}
+
+#header-top > div {
+    display: grid;
+    padding: 0 15px;
+    grid-template-columns: 1fr repeat(2,max-content);
+    grid-template-areas: 
+    "logo icon menu"
+    "search search search";
+    column-gap: 1rem;
+    row-gap: 11px;
+    align-items: center;
+}
+
+#header-logo {
+    grid-area: logo;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 345px;
+    max-height: 70px;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: inherit;
+    }
+}
+
+#header-icon {
+    grid-area: icon;
+    font-size: 32px;
+}
+
+#header-support {
+    background-color: #4183d7;
+    border-color: #4183d7;
+    color: color.$text--light;
+    grid-area: support;
+
+    &:hover {
+        background-color: #2a6ec6;
+        border-color:#2665b5;
+    }
+}
+
+#header-support,
+#header-contact,
+#header-form > button {
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+#header-contact {
+    background-color: #999aa2; // match search button light grey
+    border-color: #999aa2;
+    color: color.$text--light;
+    grid-area: contact;
+
+    &:hover{
+        background-color: #84858f;
+        border-color: #84858f;
+    }
+}
+
+#header-support, 
+#header-contact {
+    display: none;
+    text-transform: uppercase;
+    height: 55px;
+    border-radius: 3px;
+    padding: 0 1rem;
+    line-height: 46px;
+    font-size: 18px;
+
+    p {
+        display: inline-block;
+        margin:  0;
+    }
+}
+
+#header-menu {
+    grid-area: menu;
+    background-color: color.$brand--dark;
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+    justify-content: center;
+    border-radius: 3px;
+    padding: 15px;
+    margin: 0;
+    border: 0;
+    height: 56px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+#menu-top,
+#menu-middle,
+#menu-bottom {
+    content: "";
+    background-color: color.$bg--light;
+    display: block;
+    padding: 2px 17px;
+    overflow: hidden;
+}
+
+#header-form {
+    width: 100%;
+    grid-area: search;
+    position: relative;
+
+    input {
+        padding: 5px 15px;
+        height: 47px;
+        background-color: color.$border--light;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        border: 2px solid rgba(0,0,0,.1);
+        width: 100%;
+        display: inline-block;
+
+        &:focus {
+            box-shadow: 0 0 3px #fff;
+            outline: 1px solid hsla(0, 0%, 100%, .2);
+        }
+    }
+
+    button {
+        border: none;
+        background-color: transparent;
+        position:absolute;
+        right: 5px;
+        font-size: 20px;
+        height: 100%;
+    }
+}
+
+// Placeholder styling per original base form-control rules
+#header-form input::placeholder {
+  color: #888;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 20px;
+}
+#header-form input::-webkit-input-placeholder {
+  color: #888;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 20px;
+}
+#header-form input::-moz-placeholder {
+  color: #888;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 20px;
+}
+#header-form input:-ms-input-placeholder {
+  color: #888;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 20px;
+}
+
+@include mq.set-breakpoint('768') {
+    // iPad/tablet: header bar 70px content height + 20px top/bottom padding
+    #header-top {
+        height: 110px;
+        padding: 20px 0;
+    }
+
+    #header-top > div {
+        height: 70px;
+        padding: 0 15px;
+        margin: auto;
+
+        grid-template-columns: 1fr repeat(2,max-content);
+        grid-template-areas: 
+        "logo search menu";
+    }
+
+    #header-logo {
+        width: 345px;
+        max-width: 345px;
+        height: auto;
+        max-height: 70px;
+    }
+
+    #header-icon {
+        display: none;
+    }
+
+    #header-form {
+        height: 56px; // reserve height equal to input/button
+        padding-right: 63px; // reserve space for the absolute button
+        input {
+            height: 56px;
+            width: 174px; // original tablet width
+            border: 1px solid rgba(0,0,0,.1);
+            background: color.$bg--light;
+            border-radius: 3px 0 0 3px; // left rounded, flat right to butt against button
+
+            &:focus {
+                border-color: #5bc0de;
+                outline: 0;
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(91,192,222,.6);
+            }           
+        }
+
+        button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 56px;
+            padding: 0 20px; // horizontal only
+            background-color: #999aa2;
+            color: color.$text--light;
+            font-size: 23px;
+            border-radius: 0 3px 3px 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 0;
+
+            &:hover {
+                background-color: #84858f;
+            }
+        }
+    }
+}
+
+@include mq.set-breakpoint('992') {
+    #header-top {
+        height: 110px; // total height including padding (border-box)
+        padding: 20px 0;
+    }
+    #header-top > div { height: 70px; }
+    #header-top > div {
+        grid-template-columns: 1fr repeat(4,max-content);
+        grid-template-areas: 
+        "logo support contact search menu";
+    }
+
+    #header-logo {
+        width: 369.946px;
+        max-width: 369.946px;
+        height: auto;
+        max-height: 64.420px;
+    }
+
+    // Ensure desktop search icon is exactly 23x23 and centered
+    #header-form button i {
+        display: inline-block;
+        font-size: 23px;
+        width: 23px;
+        height: 23px;
+        line-height: 23px;
+        vertical-align: middle;
+    }
+
+    #header-support, 
+    #header-contact {
+        display: flex;
+        align-items: center;
+        column-gap: 0; // rely on icon margin-right for spacing
+        
+        // Move labels 4px left to tighten gap
+        p { margin-left: -4px; }
+    }
+
+    // Apply exact button metrics between 992–1259px
+    #header-support i,
+    #header-contact i {
+        display: inline-block;
+        font-size: 23.41px;
+        width: 23.41px;
+        height: 45px;
+        line-height: 45px;
+        margin-right: 1px; // tighten gap ~4px
+        padding: 0;
+    }
+
+    #header-support,
+    #header-contact {
+        box-sizing: content-box;
+        height: 56px;
+        padding: 5px 15px;
+        border-width: 0.571px;
+        white-space: nowrap;
+    }
+    #header-support { width: 109.6px; }
+    #header-contact { width: 117.4px; }
+
+    #header-form {
+        input {
+            display: none; // hide text input 992-1259 like original
+        }
+
+        button {
+            position: relative;
+            height: 56px;
+            padding: 0 20px; // symmetric horizontal padding
+            font-size: 1.063rem;
+            border-radius: 0 3px 3px 0;
+            background-color: #999aa2;
+            color: color.$text--light;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 0; // remove baseline effects
+        }
+    }
+}
+
+// Mobile (<=767): match original header inner height and padding
+@include mq.set-breakpoint('768', max) {
+    #header-top > div {
+        height: 128px; // original mobile container height
+        padding: 0 15px; // left/right padding 15px
+    }
+}
+
+// Laptop around 1200px: original shows a compact search input
+@media only screen and (min-width: 1200px) and (max-width: 1259px) {
+    #header-form {
+        width: auto;
+        height: 56px; // match button height
+        display: inline-flex; // vertically center input
+        align-items: center;
+        position: relative;
+        padding-right: 63px; // reserve space for button inside the search cell
+        input {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 268.857px; // matches original input width (excludes icon)
+            height: 44.857px;
+            padding: 5px 15px; // input padding only; button sits outside at left:100%
+            margin: 0.571px;
+            border: 1px solid rgba(0,0,0,.2); // crisper border at correct thickness
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            background-clip: padding-box;
+        }
+        button {
+            position: absolute;
+            right: 0; // anchor inside reserved padding area
+            top: 0; // match form height exactly
+            transform: none;
+            height: 56px; // fixed button height
+            padding: 0 20px; // symmetric horizontal padding
+            font-size: 23px; // icon size
+            border-radius: 0 3px 3px 0;
+            background-color: #999aa2;
+            color: color.$text--light;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 0; // remove baseline effects
+        }
+    }
+}
+
+@include mq.set-breakpoint('1260') {
+    #header-top {
+        height: 110px; // total height including padding (border-box)
+        padding: 20px 0;
+    }
+    #header-top > div { height: 70px; column-gap: 20px; }
+    #header-logo {
+        width: 369.946px;
+        max-width: 369.946px;
+        height: auto;
+        max-height: 64.420px;
+    }
+    #header-form {
+        width: auto;
+        height: 56px;
+        display: inline-flex; // vertically center input
+        align-items: center;
+        position: relative;
+        padding-right: 63px; // reserve space for button inside the search cell
+        input {
+            display: inline-block;
+            box-sizing: border-box;
+            height: 56px;
+            width: 240px; // original desktop input width
+            padding: 5px 15px; // input padding only; button sits to the right inside padding area
+            margin: 0.571px;
+            border: 1px solid rgba(0,0,0,.2); // crisper border at correct thickness
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            background-clip: padding-box;
+        }
+
+        button {
+            position: absolute;
+            right: 0; // anchor inside reserved padding area
+            top: 0; // match form height exactly
+            transform: none;
+            height: 56px;
+            padding: 0 20px; // symmetric horizontal padding
+            font-size: 23px;
+            border-radius: 0 3px 3px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 0; // remove baseline effects
+        }
+    }
+
+    // Match nav bar icon sizing and container metrics at large desktop
+    #header-support i,
+    #header-contact i {
+        display: inline-block;
+        font-size: 23.41px;      // pseudo ::before inherits this
+        width: 23.41px;          // icon box width
+        height: 45px;            // icon box height
+        line-height: 45px;       // vertically center glyph within 45px
+        margin-right: 1px;       // tighten gap ~4px
+        padding: 0;
+    }
+
+    // Also shift labels 4px left at large desktop
+    #header-support p,
+    #header-contact p { margin-left: -4px; }
+
+    // Button box metrics (content-box > padding > border)
+    #header-support,
+    #header-contact {
+        box-sizing: content-box;
+        height: 56px;            // 44.86 content + 5+5 padding + ~0.57*2 border
+        padding: 5px 15px;       // top/bottom 5, left/right 15
+        border-width: 0.571px;   // all four sides
+        white-space: nowrap;     // avoid wrapping label
+    }
+
+    #header-support { width: 109.6px; }
+    #header-contact { width: 117.4px; }
+}
+

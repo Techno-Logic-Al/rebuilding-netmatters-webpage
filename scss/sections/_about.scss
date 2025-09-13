@@ -1,0 +1,113 @@
+@use '../variables/color';
+@use '../utilities/media-query' as mq;
+
+#section-about {
+    background-color: color.$brand--normal;
+}
+
+#section-about > div {
+    display: flex;
+    flex-direction: column;
+// Space between grid/flex children
+    gap: 2rem;
+    padding: 50px 15px;
+
+@include mq.set-breakpoint('992') {
+    flex-direction: row;
+    }
+
+    h2 {
+        color: #fff;
+        font-size: 2.25rem;
+        font-weight: 600;
+        margin: 0 0 2rem;
+        line-height: 1.1;
+    }
+    
+    p {
+        color: #fff;
+        font-weight: 400;
+        line-height: 1.875rem;
+        margin-bottom: 25px; 
+    }
+
+    p:first-of-type {
+        font-weight: 600;
+    }
+
+}
+
+@include mq.set-breakpoint('992') {
+    #section-about > div > .about-netmatters,
+    #section-about > div > div {
+        width: 50%;
+    }
+}
+
+.quote-rating {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 40px;
+    color: orange;
+}
+
+.quote-content {
+    font-weight: 600;
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+#section-about .quote-author {
+    font-size: 1.1rem;
+    color: #a3a8ac;
+    font-weight: 600;
+    padding-bottom: 25px;
+
+    a {
+    text-decoration: none;
+    color: #fff;
+    }
+}
+
+.link-dark,
+.link-google,
+.link-trustpilot {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0.5rem 8px 0.5rem 0px;
+    border-radius: 5px;
+    font-size: 20px;
+    line-height: 35px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    align-self: baseline;
+}
+
+.link-dark {
+    background-color: #272936;
+
+// Pseudo selector 'hover' state or element
+    &:hover {
+        background-color: #121318;
+    }  
+}
+
+.link-google {
+    background-color: #4387f6;
+
+// Pseudo selector 'hover' state or element
+    &:hover {
+        background-color: #166af4;
+    }  
+}
+
+.link-trustpilot {
+    background-color: #00b67b;
+
+// Pseudo selector 'hover' state or element
+    &:hover {
+        background-color: #009b69;
+    }  
+}

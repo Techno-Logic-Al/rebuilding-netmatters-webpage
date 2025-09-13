@@ -1,0 +1,13 @@
+
+
+@use "sass:string";
+@use 'variables' as v;
+
+
+
+
+@each $name, $icon in v.$icons {
+  .#{v.$css-prefix}-#{$name} {
+    #{v.$icon-property}: string.unquote("\"#{ $icon }\"");
+  }
+}

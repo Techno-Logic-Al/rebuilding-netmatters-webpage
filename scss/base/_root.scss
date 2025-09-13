@@ -1,0 +1,24 @@
+@use '../variables/config';
+@use '../utilities/typography' as font;
+
+html {
+    font-size: config.$font-size;
+}
+
+body {
+    min-width: 320px;
+    letter-spacing: .4px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; // prevent accidental horizontal overflow on mobile/tablet
+
+    @extend %poppins-regular;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    padding: 0;
+    margin: 0;
+}

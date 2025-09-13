@@ -1,0 +1,23 @@
+// Compat overrides: map commonly used Font Awesome icons
+// to the original site's icomoon glyphs so visuals match.
+
+// Ensure icomoon renders for these overrides
+%icomoon {
+  font-family: "icomoon" !important;
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Header actions (scoped to header only)
+#site-header .fa-mouse:before { @extend %icomoon; content: "\E903"; }
+#site-header .fa-paper-plane:before { @extend %icomoon; content: "\E90C"; }
+
+// Main nav category icons (scope to top-level nav links only)
+.nav-dev > a > i.fa-laptop:before { @extend %icomoon; content: "\E918"; }        // apps / dev
+.nav-support > a > i.fa-desktop:before { @extend %icomoon; content: "\E905"; }   // it
+.nav-marketing > a > i.fa-signal:before { @extend %icomoon; content: "\E904"; }  // marketing bar-graph
+.nav-telecoms > a > i.fa-phone-volume:before { @extend %icomoon; content: "\E902"; } // telecoms
+.nav-webdesign > a > i.fa-code:before { @extend %icomoon; content: "\E908"; }   // web
+
+// Remove global overrides for list icons to avoid mismatches
+// Specific mappings for list items are placed in _icons_compat_extra.scss

@@ -1,0 +1,8 @@
+
+
+@use "sass:string";
+
+
+@function fa-content($var) {
+  @return string.unquote("\"#{ $var }\"");
+}

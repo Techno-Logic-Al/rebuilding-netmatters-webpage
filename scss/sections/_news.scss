@@ -1,0 +1,241 @@
+@use '../variables/color';
+@use '../utilities/media-query' as mq;
+
+#news-container {
+    padding: 50px 15px;
+    position: relative;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "news-header"
+        "news-container"
+        "news-link";
+
+    header {
+        grid-area: news-header;
+        justify-self: left;
+    }
+
+    h2 {
+        font-size: 2.25rem;
+        font-weight: 600;
+    }
+
+    > a {
+        grid-area:news-link;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: color.$text--dark;
+        text-decoration: none;
+        justify-self: center;
+        margin-top: 50px;
+    }
+
+    @include mq.set-breakpoint('768') {
+
+        grid-template-columns: 2fr;
+        grid-template-areas:
+            "news-header news-link"
+            "news-container news-container";
+        > a {
+            margin-top: 0;
+        }
+    }
+}
+
+.news-list {
+    grid-area: news-container;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    padding-top: 50px;
+
+    @include mq.set-breakpoint('768') {
+
+        grid-template-columns: 1fr 1fr;
+
+        > :last-child {
+            display: none;
+        }
+    }
+
+    @include mq.set-breakpoint('1260') {
+
+        grid-template-columns: 1fr 1fr 1fr;
+
+        > :last-child {
+            display: flex;
+        }
+    }
+}
+
+.news-item {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    box-shadow: 0 3px 35px rgba(0, 0, 0, .1);
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+    &:hover {
+        translate: 0 -10px;
+        transition: .5s ease;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    // Ensure consistent header image height to align cards
+    .news-header {
+        overflow: hidden;
+    }
+    .news-header img {
+        display: block;
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .news-footer {
+        margin-top: 2rem;
+        padding-top: 1rem;
+    }
+
+    .news-header,
+    .news-footer {
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.5;
+    }
+
+    h3 a {
+        color: #4183d7;
+        text-decoration: none;
+    }
+    
+    p {
+        color: #666;
+        font-size: 0.8rem;
+        font-weight: 400;
+        line-height: 1.8;
+    }
+
+    & > h3,
+    & > p,
+    & > .news-readmore,
+    & > footer { 
+        margin: 0 2rem;
+    }
+
+    p {
+        margin: 1rem 2rem;
+    }
+
+    @include mq.set-breakpoint('768') {
+        > h3 {
+            min-height: 3rem;
+        }
+    }
+}
+
+.news-item {
+    position: relative;
+
+    .news-link {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.news-footer {
+    border-top: 1px solid #ccc;
+    display: grid;
+    column-gap: 1rem;
+    grid-template-columns: min-content 1fr;
+    grid-template-areas: 
+    "avatar posted"
+    "avatar date";
+    
+    img {
+        align-self: center;
+        width: 45px;
+        grid-area: avatar;
+        border-radius: 50%;
+    }
+
+    p {
+        color: color.$text--dark;
+        margin: 0;
+    }
+
+    & p:first-of-type {
+        grid-area: posted;
+        font-weight: 600;
+        align-self: baseline;
+    }
+}
+
+.news-type {
+    position: absolute;
+    right: 0;
+    top: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: orange;
+    color: color.$bg--light;
+    text-transform: uppercase;
+    font-size: .75rem;
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 1;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.news-readmore {
+    width: fit-content;
+    color: color.$text--light;
+    font-weight: 400;
+    padding: 15px 15px;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+article[data-news-type="insights"] .news-type {
+    background-color: #67809f;
+}
+
+article[data-news-type="insights"] .news-readmore {
+    background-color: #f7b322;
+}
+
+article[data-news-type="insights"] h3 a {
+    color: #67809f;
+    color: #67809f;
+}
+
+article[data-news-type="careers"] .news-type,
+article[data-news-type="careers"] .news-readmore {
+    background-color: #4183d7;
+}

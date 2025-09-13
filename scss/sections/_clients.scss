@@ -1,0 +1,109 @@
+@use '../variables/color';
+@use '../utilities/typography';
+@use '../utilities/media-query' as mq;
+// Import built-in Sass module: sass:map
+@use 'sass:map';
+// Import built-in Sass module: sass:color
+@use 'sass:color' as sass-color;
+@use '../variables/services';
+
+#section-clients {
+    padding: 50px 0 50px 0;
+
+    img {
+        max-height: 70px;
+    }
+}
+
+#client-list > ul > li {
+    position: relative;
+    display: flex;
+}
+
+.client-outer {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: -200px;
+    right: -200px;
+// Stacking order (higher = on top)
+    z-index: 10;
+}
+
+.client-inner {
+    background-color: #333645;
+    margin: 0 auto 50px;
+    flex-direction: column;
+    max-width: 280px;
+    padding: 20px;
+    display: flex;
+// Cross-axis alignment in flex/grid
+    align-items: center;
+    flex-wrap: nowrap;
+
+    h3 {
+        position: relative;
+        font-size: 1.125rem;
+        color: #fff;
+        padding-bottom: 17px;
+        margin: 0;
+    }
+
+    p {
+        color: #fff;
+        font-size: .8125rem;
+        line-height: 1.375rem;
+        margin: 0;
+        text-align: center;
+    }
+
+    a {
+        color: #fff;
+        display: flex;
+// Cross-axis alignment in flex/grid
+        align-items: center;
+        padding: 15px;
+        margin-top: 10px;
+        text-transform: uppercase;
+        border-radius: 3px;
+// Space between grid/flex children
+        gap: 5px;
+    }
+}
+
+.client-arrow {
+    color: white;
+    position: absolute;
+    height: 0;
+    bottom: 10px;
+
+// Pseudo selector 'after' state or element
+    &::after {
+        content: "";
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 40px 35px 0 35px;
+        border-color: #333645 transparent transparent transparent;
+        transform: rotate(0deg);
+    }
+}
+
+#client-list > ul > li:hover .client-outer,
+#client-list > ul > li:focus-within .client-outer {
+    display: block;
+}
+
+// Loop: generate styles for $service, $color from services.$list 
+@each $service, $color in services.$list {
+
+    .client-link--#{$service} {
+        background-color: $color;
+        text-decoration: none;
+    }
+
+    .client-link--#{$service}:hover {
+        background-color: sass-color.scale($color, $lightness: -15%);
+        text-decoration: none;
+    }
+}

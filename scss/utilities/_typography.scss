@@ -1,0 +1,18 @@
+@use "sass:math";
+@use '../variables/config';
+
+%poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+%poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@function size($target, $context: config.$font-size) {
+  @return math.div($target, $context) * 1rem;
+}
