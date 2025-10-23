@@ -2,7 +2,9 @@
 @use '../utilities/media-query' as mq;
 
 #section-about {
+    position: relative;
     background-color: color.$brand--normal;
+    z-index: 10;
 }
 
 #section-about > div {

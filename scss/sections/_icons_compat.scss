@@ -9,8 +9,17 @@
 }
 
 // Header actions (scoped to header only)
-#site-header .fa-mouse:before { @extend %icomoon; content: "\E903"; }
-#site-header .fa-paper-plane:before { @extend %icomoon; content: "\E90C"; }
+#site-header .fa-mouse:before,
+.sticky .fa-mouse:before {
+  @extend %icomoon;
+  content: "\E903";
+}
+
+#site-header .fa-paper-plane:before,
+.sticky .fa-paper-plane:before {
+  @extend %icomoon;
+  content: "\E90C";
+}
 
 // Main nav category icons (scope to top-level nav links only)
 .nav-dev > a > i.fa-laptop:before { @extend %icomoon; content: "\E918"; }        // apps / dev

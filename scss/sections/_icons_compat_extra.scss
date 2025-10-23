@@ -12,3 +12,5 @@
   content: "\E8DE";
 }
 
+// CTA arrow matches original icomoon asset
+.fa-arrow-right:before { @extend %icomoon; content: "\E906"; }
