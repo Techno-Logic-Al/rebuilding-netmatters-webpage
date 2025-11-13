@@ -144,7 +144,19 @@
     color: #333645;
 
     position: absolute;
-    bottom: -55px; 
+    bottom: -55px;
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: underline;
+        text-decoration-color: currentColor;
+    }
+
+    i {
+        display: inline;
+        line-height: inherit;
+        vertical-align: baseline;
+    }
 }
 
 @include mq.set-breakpoint('768') {
