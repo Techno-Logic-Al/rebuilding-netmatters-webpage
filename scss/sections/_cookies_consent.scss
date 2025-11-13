@@ -1,0 +1,117 @@
+@use '../variables/color';
+@use '../utilities/media-query' as mq;
+@use 'sass:color' as sass-color;
+
+#consent-btn-manage {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: sass-color.scale(#999AA2, $lightness: -25%);
+    color: color.$text--light;
+    z-index: 50;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: none;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    padding: 0.28rem 0.68rem 0.18rem 0.62rem;
+}
+
+#site-consent {
+    display: none;
+}
+
+#site-consent.active {
+    display: grid;
+    position: fixed;
+    height: 100%;
+    min-height: 100dvh;
+    z-index: 100;
+    background: rgba(0,0,0,0.7);
+    grid-template-columns: min(100%, calc(600px + 4rem));
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#site-consent > div {
+    margin: 2rem;
+    display: grid;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#site-consent > div > h2 {
+    font-weight: 400;
+    font-size: 26px;
+    padding: 15px 20px;
+    line-height: 37.1429px;
+    color: #333645;
+}
+
+#site-consent > div > p {
+    padding: 1.25rem 1.25rem 2.75rem;
+    border: #ccc solid 1px;
+    line-height: 1.875rem;
+    margin: 0;
+    color: rgb(102, 102, 102);
+
+    a {
+        text-decoration: none;
+        margin: 0;
+        color: #333645;   
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.consent-buttons {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+    row-gap: 1.75rem;
+    line-height: 1.42856875rem;
+
+    @include mq.set-breakpoint("768") {
+        flex-direction: row;
+    }
+}
+
+#consent-btn-settings,
+#consent-btn-accept {
+    display: block;
+    color: color.$text--light;
+    padding: 5.6px 26px 5.6px 23px;
+    font-size: 17px;
+    letter-spacing: 0.4px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 3px;
+    border: none;
+    flex-grow: 1;
+    
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+#consent-btn-settings {
+    background-color: #999AA2;
+
+    &:hover {
+        background-color: sass-color.scale(#999AA2, $lightness: -15%);
+    }
+}
+
+#consent-btn-accept {
+    background-color: #926FB1;
+
+    &:hover {
+        background-color: sass-color.scale(#926FB1, $lightness: -15%);
+    }
+}
