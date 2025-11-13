@@ -4,6 +4,7 @@
     grid-area: site-wrapper;
     width: 100%;
     max-width: 100%;
+    background-color: #fff;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3,max-content);
@@ -11,6 +12,13 @@
         "site-header"
         "site-main"
         "site-footer";
+    position: relative;
+    left: 0;
+    z-index: 10;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.5s ease;
+    will-change: transform;
 }
 
 #site-header {
@@ -26,6 +34,8 @@
 
 main {
     grid-area: site-main;
+    width: 100%;
+    min-width: 0;
 }
 
 #site-footer {
@@ -49,38 +59,4 @@ main {
     @include mq.set-breakpoint('1260') {
         width: 1200px;
     }
-}
-
-body.sidebar-active #site-sidebar {
-    grid-area: site-sidebar;  
-    position: fixed;
-    width: 350px;
-    top: 0;
-    right: 0;
-    overflow-y: scroll;
-    height: 100%;
-}
-
-body.sidebar-active {
-    overflow-x: hidden;
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    grid-template-areas:
-        "site-wrapper site-sidebar";
-}
-
-body.sidebar-active #site-wrapper {
-    translate: -350px;
-}
-
-body.sidebar-active #site-wrapper::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0,0,0,0.4);
-// Stacking order (higher = on top)
-    z-index: 999;
 }
