@@ -1,0 +1,34 @@
+@keyframes slideInDown {
+    0% {
+        transform: translate3d(var(--slide-offset-x, 0), -100%, 0);
+        visibility: visible;
+    }
+
+    100% {
+        transform: translate3d(var(--slide-offset-x, 0), 0, 0);
+    }
+}
+
+@keyframes slideOutUp {
+    0% {
+        transform: translate3d(var(--slide-offset-x, 0), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--slide-offset-x, 0), -100%, 0);
+        visibility: hidden;
+    }
+}
+
+.animated {
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+}
+
+.slideInDown {
+    animation-name: slideInDown;
+}
+
+.slideOutUp {
+    animation-name: slideOutUp;
+}
