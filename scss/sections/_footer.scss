@@ -31,12 +31,12 @@
     color: color.$text--light;
     background-color: color.$brand--dark;
 }
-
 #footer-main h4 { 
     margin-bottom: 26px;
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 400;
+    line-height: 17.6px;
 }
 
 #footer-social,
@@ -44,7 +44,7 @@
 #footer-services,
 #footer-industries,
 #footer-locations {
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
 }
 
 #footer-copy,
@@ -55,8 +55,6 @@
     ul {
         display: flex;
         flex-direction: column;
-        row-gap: 0.25rem;
-
         list-style: none;
         margin: 0;
         padding: 0;
@@ -64,6 +62,7 @@
         a {
             color: color.$text--light;
             text-decoration: none;
+            line-height: 22px;
       // Pseudo selector 'hover' state or element
             &:hover {
                 text-decoration: underline;
@@ -78,20 +77,22 @@
 
 #footer-logo img{
     width: 250px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 
 }
 
 #footer-social {
     grid-area: footer-social;
     font-size: 26px;
+    line-height: 26px;
 
     div {
         display: flex;
         flex-direction: row;
 // Space between grid/flex children
-        gap: 0.5rem;
-        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 10px;
+        flex-wrap: nowrap;
         width: 250px;
     }
     
@@ -99,8 +100,8 @@
         color: #fff;
         background-color: color.$brand--dark;
         display: inline-block;
-        padding: 12px 2rem;
         text-align: center;
+        padding: 16.25px 18px 14.75px 18px;
 
         &.i-facebook:hover {
             background-color: #3b5998;
@@ -127,10 +128,19 @@
 }
 
 #footer-copy {
-    padding: 10px 0;
+    padding: 13px 0 10px;
     p:last-of-type {
         display: none;
     }
+
+    #footer-copy-dash {
+        margin-right: 5px;
+        margin-left: 6.5px;
+    }
+}
+
+.line-break-1260::before {
+    content: " ";
 }
 
 @include mq.set-breakpoint('480') {
@@ -142,16 +152,6 @@
 @include mq.set-breakpoint('768') {
     #footer-logo img{
         width: 320px
-    }
-
-    #footer-social {
-        a {
-            padding: 12px 1rem;
-        }
-
-        div {
-            width: auto;
-        }
     }
 
 
@@ -166,15 +166,76 @@
             display: inline-block;
         }
     }
+
+    #footer-services,
+    #footer-locations {
+        padding-left: 15px;
+    }
 }
 
 @include mq.set-breakpoint('992') {
     #footer-nav {
         grid-template-columns: repeat(4, 1fr);
     }
+
+    #footer-industries {
+        padding-left: 15px;
+    }
+
+    #footer-locations {
+        padding-left: 22px;
+    }
+
+    #footer-services {
+        padding-left: 8px;
+    }
 }
 
 @include mq.set-breakpoint('1260') {
+    #footer-main {
+        padding-top: 47px;
+    }
+
+    #footer-social,
+    #footer-about,
+    #footer-services,
+    #footer-industries,
+    #footer-locations {
+        margin-bottom: 40px;
+    }
+
+    #footer-nav {
+        padding-left: 10px;
+    }
+
+    #footer-about {
+        padding-left: 6px;
+    }
+
+    #footer-industries {
+        padding-left: 18px;
+    }
+
+    #footer-services {
+        padding-left: 12px;
+    }
+
+    #footer-locations {
+        padding-left: 24px;
+    }
+
+    #footer-social div {
+        gap: 7px;
+    }
+
+    .line-break-1260 {
+        display: block;
+    }
+
+    .line-break-1260::before {
+        content: "";
+    }
+
     #footer-top {
         grid-template-columns: min-content 1fr;
         grid-template-rows: max-content 1fr;
