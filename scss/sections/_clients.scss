@@ -1,109 +1,214 @@
-@use '../variables/color';
-@use '../utilities/typography';
-@use '../utilities/media-query' as mq;
-// Import built-in Sass module: sass:map
-@use 'sass:map';
-// Import built-in Sass module: sass:color
-@use 'sass:color' as sass-color;
-@use '../variables/services';
+@use "sass:color" as sass-color;
+@use "../variables/services";
 
 #section-clients {
-    padding: 50px 0 50px 0;
-
-    img {
-        max-height: 70px;
-    }
-}
-
-#client-list > ul > li {
+    padding: 50px 0;
+    width: 100%;
+    overflow: visible;
     position: relative;
-    display: flex;
-}
-
-.client-outer {
-    display: none;
-    position: absolute;
-    bottom: 100%;
-    left: -200px;
-    right: -200px;
-// Stacking order (higher = on top)
     z-index: 10;
 }
 
-.client-inner {
-    background-color: #333645;
-    margin: 0 auto 50px;
-    flex-direction: column;
-    max-width: 280px;
-    padding: 20px;
-    display: flex;
-// Cross-axis alignment in flex/grid
-    align-items: center;
-    flex-wrap: nowrap;
+.section.clients {
+    position: relative;
+    z-index: 15;
+    text-align: center;
 
-    h3 {
+    .sliding-clients {
         position: relative;
-        font-size: 1.125rem;
-        color: #fff;
-        padding-bottom: 17px;
-        margin: 0;
+        z-index: 15;
+
+        &.owl-carousel {
+            z-index: 15 !important;
+        }
     }
 
-    p {
-        color: #fff;
-        font-size: .8125rem;
-        line-height: 1.375rem;
-        margin: 0;
+    .list {
+        display: flex;
+        flex-direction: row;
         text-align: center;
     }
 
-    a {
-        color: #fff;
-        display: flex;
-// Cross-axis alignment in flex/grid
-        align-items: center;
-        padding: 15px;
-        margin-top: 10px;
-        text-transform: uppercase;
-        border-radius: 3px;
-// Space between grid/flex children
-        gap: 5px;
+    .item {
+        flex-grow: 1;
+        vertical-align: middle;
+        padding: 0 20px;
+        position: relative;
+
+        img {
+            max-height: 70px;
+            width: auto !important;
+            max-width: 200px;
+            filter: grayscale(1);
+        }
+
+        .description {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: -200px;
+            right: -200px;
+            z-index: 100;
+            pointer-events: auto;
+
+            .box {
+                background-color: #333645;
+                color: #fff;
+                padding: 20px;
+                font-size: 0.875rem;
+                max-width: 280px;
+                margin: 0 auto 50px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+
+                h3 {
+                    position: relative;
+                    font-size: 1.125rem;
+                    font-weight: 400;
+                    color: #fff;
+                    padding-bottom: 17px;
+                    margin: 0;
+                }
+
+                p {
+                    font-size: 0.8125rem;
+                    line-height: 1.375rem;
+                    margin-bottom: 0;
+
+                    a {
+                        font-weight: 700;
+                        text-transform: none;
+                        text-decoration: none;
+                        color: #fff;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .arrow {
+                    position: absolute;
+                    bottom: 12px;
+                    left: 50%;
+                    margin-left: -36px;
+
+                    &::after {
+                        content: "";
+                        margin: auto;
+                        display: inline-block;
+                        border-color: #333645 transparent transparent;
+                        border-style: solid;
+                        border-width: 35px 36px 0;
+                    }
+                }
+
+                a[class^="client-link--"] {
+                    margin-top: 11px;
+                    font-size: 1rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 15px;
+                    border-radius: 3px;
+                    gap: 5px;
+                    color: #fff;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &:hover,
+        &:focus-within {
+            img {
+                filter: grayscale(0);
+            }
+
+            .description {
+                display: block;
+            }
+        }
+
+        .description:hover {
+            display: block;
+        }
     }
 }
 
-.client-arrow {
-    color: white;
-    position: absolute;
-    height: 0;
-    bottom: 10px;
-
-// Pseudo selector 'after' state or element
-    &::after {
-        content: "";
-        width: 0px;
-        height: 0px;
-        border-style: solid;
-        border-width: 40px 35px 0 35px;
-        border-color: #333645 transparent transparent transparent;
-        transform: rotate(0deg);
-    }
+.section.clients .list .item .description .box-no-description h3 {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
 }
 
-#client-list > ul > li:hover .client-outer,
-#client-list > ul > li:focus-within .client-outer {
+.section.clients .list .item .description .box-no-description p {
+    display: none;
+}
+
+.sliding-clients .owl-stage,
+.sliding-partners .owl-stage {
+    display: flex;
+}
+
+.sliding-clients .owl-stage-outer,
+.sliding-partners .owl-stage-outer {
+    overflow: inherit;
+}
+
+.sliding-clients .item,
+.sliding-partners .item {
+    vertical-align: middle;
+    padding: 0 20px;
+    position: relative;
+    max-height: 70px;
+    height: 70px;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.sliding-clients .item .coloured,
+.sliding-partners .item .coloured {
+    display: none;
+}
+
+.sliding-clients .item:hover .coloured,
+.sliding-clients .item:focus-within .coloured,
+.sliding-partners .item:hover .coloured,
+.sliding-partners .item:focus-within .coloured {
+    display: inline;
+}
+
+.sliding-clients .item:hover .greyscale,
+.sliding-clients .item:focus-within .greyscale,
+.sliding-partners .item:hover .greyscale,
+.sliding-partners .item:focus-within .greyscale {
+    display: none;
+}
+
+.sliding-clients .item:hover .description {
     display: block;
 }
 
-// Loop: generate styles for $service, $color from services.$list 
-@each $service, $color in services.$list {
+.section.clients .client-link--webdesign.client-link--yellow {
+    background-color: #f7b322;
 
-    .client-link--#{$service} {
-        background-color: $color;
-        text-decoration: none;
-    }
-
-    .client-link--#{$service}:hover {
-        background-color: sass-color.scale($color, $lightness: -15%);
-        text-decoration: none;
+    &:hover,
+    &:focus {
+        background-color: #d49b1c;
     }
 }
+
+@each $service, $service-color in services.$list {
+    .section.clients .client-link--#{$service} {
+        background-color: $service-color;
+    }
+
+    .section.clients .client-link--#{$service}:hover,
+    .section.clients .client-link--#{$service}:focus {
+        background-color: sass-color.scale($service-color, $lightness: -15%);
+    }
+}
+

@@ -1,3 +1,4 @@
+@forward 'cookies_consent';
 @forward 'header';
 @forward 'nav';
 @forward 'sidebar';
@@ -9,6 +10,7 @@
 @forward 'clients';
 @forward 'news';
 @forward 'footer';
+@forward 'contact';
 @forward 'header_compat';
 @forward 'icons_compat';
 @forward 'icons_compat_extra';

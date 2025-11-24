@@ -1,0 +1,976 @@
+@use '../variables/color';
+@use '../utilities/media-query' as mq;
+
+#contact-page {
+    background-color: #fff;
+
+    .block {
+        display: block;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 30px;
+        box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .hidden-xs.breadcrumb-container {
+        box-shadow: 0 5px 35px rgba(0, 0, 0, 0.1);
+        padding: 14px 0 13px;
+        background-color: #fff;
+    }
+
+    .hidden-xs.breadcrumb-container .breadcrumb {
+        background: none;
+        color: #333645;
+        font-size: 0.8125rem;
+        margin: 0;
+        padding: 0;
+        line-height: 18.5714px;
+        list-style: none;
+    }
+
+    .hidden-xs.breadcrumb-container .breadcrumb a {
+        color: #333645;
+        font-weight: 700;
+        line-height: 18.5714px;
+        text-decoration: none;
+    }
+
+    .hidden-xs.breadcrumb-container .breadcrumb a:hover {
+        text-decoration: underline;
+    }
+
+    .hidden-xs.breadcrumb-container .breadcrumb > li {
+        display: inline-block;
+    }
+
+    .hidden-xs.breadcrumb-container .breadcrumb > li + li::before {
+        content: "/\00a0";
+        padding: 0 5px;
+        color: #333645;
+    }
+
+    .section.top {
+        margin-bottom: 40px;
+    }
+
+    .page-head {
+        padding: 24px 0;
+        margin: 0 0 50px;
+        background-color: #fff;
+    }
+
+    .page-head .container h1 {
+        max-width: 750px;
+        color: #333645;
+        margin: 0;
+    }
+
+    .office-addresses {
+        margin-bottom: 40px;
+    }
+
+    .office-addresses h1 {
+        padding-top: 49px;
+        padding-bottom: 78px;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        color: rgb(51, 54, 69);
+        font-family: "Poppins", sans-serif;
+        font-size: 36px;
+        font-weight: 400;
+        letter-spacing: 0.4px;
+    }
+
+    @include mq.set-breakpoint('992') {
+        .office-addresses h1 {
+            padding-left: 15px;
+        }
+    }
+
+    @include mq.set-breakpoint('1260') {
+        .office-addresses h1 {
+            padding-left: 0;
+        }
+    }
+
+    @media (min-width: 992px) and (max-width: 1259px) {
+        .checkbox-left {
+            height: auto;
+            vertical-align: top;
+        }
+
+        label.pretty-checkbox .media {
+            display: block;
+        }
+
+        label.pretty-checkbox .media-body {
+            display: block;
+            width: auto;
+        }
+
+        .form-group.consent-group {
+            margin-bottom: 15px;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .office-addresses h1 {
+            background-color: #333645;
+            color: #fff;
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 39.6px;
+            padding: 24px 130px;
+            margin-top: 0px;
+            margin-bottom: 80px;
+            margin-left: -130px;
+            margin-right: -130px;
+        }
+    }
+
+    .office-addresses .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @include mq.set-breakpoint('992') {
+        .office-addresses .row {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    .office-addresses .row .col-md-4 {
+        display: flex;
+        padding-left: 15px;
+        padding-right: 15px;
+        flex: 1 1 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    @media (max-width: 991px) {
+        .office-addresses .row .col-md-4 {
+            padding-left: 0;
+            padding-right: 0;
+            margin-bottom: 30px;
+        }
+
+        .office-addresses .row .col-md-4:not(:first-child) {
+            margin-top: 30px;
+        }
+
+        .office-addresses .row .col-md-4:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .office-addresses .row .col-md-4 {
+            padding-left: 0;
+            padding-right: 0;
+            margin-bottom: 30px;
+        }
+
+        .office-addresses .row .col-md-4:not(:first-child) {
+            margin-top: 30px;
+        }
+    }
+
+    @include mq.set-breakpoint('992') {
+        .office-addresses .row .col-md-4 {
+            flex: 0 0 33.3333%;
+            max-width: 33.3333%;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .office-addresses .service-list.container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @include mq.set-breakpoint('1260') {
+        .office-addresses .service-list.container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .office-addresses .row {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+    }
+
+    .office-addresses .block {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #fff;
+    }
+
+    .office-addresses .block:hover {
+        color: inherit;
+        border-color: #ccc;
+    }
+
+    .office-addresses .service-list .block {
+        border-radius: 20px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .office-addresses .block.address .image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .office-addresses .block.address .content {
+        padding: 30px;
+        text-align: left;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+    }
+
+    .office-addresses .block.address .content .h2 {
+        font-size: 1.25rem;
+        position: relative;
+        color: #333645;
+        line-height: 22px;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    .office-addresses .block.address .content .h2 a {
+        font-weight: 400;
+        color: #333645;
+        line-height: 22px;
+        text-decoration: none;
+    }
+
+    .office-addresses .block.address .content .h2 a:hover {
+        text-decoration: underline;
+    }
+
+    .office-addresses .block.address .content .p {
+        font-size: 0.8125rem;
+        line-height: 22px;
+        font-weight: 400;
+        color: #666666;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    .office-addresses .block.address .content .tel {
+        margin-top: 0;
+    }
+
+    .office-addresses .block.address .content .tel .h3.text-web {
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 28.6px;
+        font-family: "Poppins", sans-serif;
+        text-decoration: none;
+    }
+
+    .office-addresses .block.address .content .tel .h3.text-web:hover {
+        text-decoration: underline;
+    }
+
+    .office-addresses .block.address .content .view-more {
+        line-height: 22.8571px;
+        height: 61.1429px;
+    }
+
+    .office-addresses .block.address .content .view-more a {
+        margin-top: 15px;
+        font-size: 0.9em;
+    }
+
+    @include mq.set-breakpoint('1260') {
+        .office-addresses .block.address .image img {
+            width: 368.86px;
+            height: 167.98px;
+        }
+
+        .office-addresses .block.address .content {
+            width: 368.86px;
+            min-height: 312.86px;
+            box-sizing: border-box;
+        }
+
+        .office-addresses .block.address .content .p {
+            width: 308.86px;
+            min-height: 110px;
+        }
+
+        .office-addresses .block.address .content .tel {
+            width: 308.86px;
+            height: 29.71px;
+        }
+
+        .office-addresses .block.address .content .tel .h3.text-web {
+            margin-bottom: 15px;
+        }
+
+        .office-addresses .block.address .content .view-more .btn.btn-web {
+            font-size: 14.4px;
+            width: 143.17px;
+            height: 46.14px;
+        }
+    }
+
+    .section.bottom.container {
+        margin-bottom: 50px;
+        padding: 0;
+    }
+
+    .section.bottom.container > .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @include mq.set-breakpoint('1260') {
+        .section.bottom.container > .row {
+            flex-direction: row;
+        }
+
+        .section.bottom.container .col-lg-8.col-lg-pull-4 {
+            order: 1;
+            flex: 0 0 800px;
+            max-width: 800px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .section.bottom.container .col-lg-4.col-lg-push-8 {
+            order: 2;
+            flex: 0 0 370px;
+            max-width: 370px;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-left: 0;
+        }
+
+        #contact-form {
+            width: 770px;
+            min-height: 555.57px;
+        }
+    }
+
+    // Ensure columns have 15px horizontal padding below 1260px
+    @media (max-width: 1259px) {
+        .section.bottom.container .col-lg-8.col-lg-pull-4 {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .section.bottom.container .col-lg-4.col-lg-push-8 {
+            padding-left: 15px;
+        }
+    }
+
+    #partial-166971 p {
+        margin: 0 0 25px;
+        font-size: 1rem;
+        line-height: 1.875rem;
+    }
+
+    #partial-166971 .h3.text-web {
+        font-size: 1.625rem;
+        font-weight: 600;
+        line-height: 1.1;
+        text-decoration: none;
+    }
+
+    // Email link (second paragraph): underline on hover only
+    #partial-166971 p:nth-of-type(2) a.h3.text-web {
+        text-decoration: none;
+    }
+
+    #partial-166971 p:nth-of-type(2) a.h3.text-web:hover {
+        text-decoration: underline;
+    }
+
+    // Phone link (fourth paragraph): underline on hover only
+    #partial-166971 p:nth-of-type(4) a.h3.text-web {
+        text-decoration: none;
+    }
+
+    #partial-166971 p:nth-of-type(4) a.h3.text-web:hover {
+        text-decoration: underline;
+    }
+
+    .accordion.out-of-hours .question h4 {
+        margin: 0;
+    }
+
+    // Out of hours block container
+    #partial-166974 .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        min-height: 55px;
+        height: auto;
+        line-height: 1.42857143;
+        overflow: visible;
+    }
+
+    @include mq.set-breakpoint('1260') {
+        #partial-166974 .container {
+            max-width: 370px;
+        }
+    }
+
+    // "Out of Hours IT Support" text – only underline on hover
+    .accordion.out-of-hours .question a {
+        text-decoration: none;
+    }
+
+    .accordion.out-of-hours .question .question-text {
+        display: inline;
+        padding: 0;
+        margin: 0 0 25px;
+        background-color: transparent;
+        color: #333645;
+        font-weight: 600;
+        line-height: 30px; // 1.875rem
+    }
+
+    .accordion.out-of-hours .question a:hover .question-text {
+        text-decoration: underline;
+    }
+
+    // Chevron icon – use legacy glyph, no underline, no extra horizontal padding
+    //.accordion.out-of-hours .question .question-text em.fa-chevron-down {}
+        /* selector kept for backwards-compatibility; override below */
+
+    .accordion.out-of-hours .question a em.fa-chevron-down {
+        display: inline-block;
+        padding-left: 0;
+        margin-left: 0;
+        text-decoration: none !important;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1rem;
+        width: auto;
+    }
+
+    .accordion.out-of-hours .answer {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        padding: 0;
+        margin-bottom: 0;
+        background-color: #fff;
+        font-size: 1rem;
+        line-height: 1.875rem;
+        color: #666666;
+        transition: max-height 0.6s ease-in-out, opacity 0.45s ease-in-out,
+            padding-top 0.6s ease-in-out, padding-bottom 0.6s ease-in-out;
+        will-change: max-height, opacity, padding-top, padding-bottom;
+    }
+
+    .accordion.out-of-hours .question.out-of-hours.active .answer {
+        opacity: 1;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .accordion.out-of-hours .answer.is-collapsing {
+        opacity: 1;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    // Out-of-hours content panel (layout is driven by content;
+    // width is constrained by the parent container)
+    #out-of-hours-content.answer.initiallyHidden {
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    // Paragraph spacing inside the out-of-hours answer
+    #out-of-hours-content.answer.initiallyHidden p {
+        margin-top: 0;
+        margin-bottom: 25px;
+    }
+
+    // First paragraph needs extra top spacing
+    #out-of-hours-content.answer.initiallyHidden p:first-of-type {
+        margin-top: 25px;
+    }
+
+    // Second paragraph (three strong lines) weight + colour
+    #out-of-hours-content.answer.initiallyHidden p:nth-of-type(2) strong {
+        font-weight: 600;
+        color: #333645;
+    }
+
+    #contact-form {
+        background-color: #e6e7e9;
+        border-radius: 10px;
+        padding: 30px;
+    }
+
+    label,
+    label.required {
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22.8571px;
+        margin-bottom: 5px;
+        color: #333645;
+        display: inline-block;
+    }
+
+    label.required::after,
+    label .required::after {
+        content: " *";
+        font-size: 16px;
+        line-height: 22.8571px;
+        color: #d24d57;
+    }
+
+    .text-danger {
+        color: #d24d57;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .media-body {
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 32px;
+        color: #333645;
+    }
+
+    // Privacy Policy link: same colour, always underlined
+    .media-body a {
+        color: #333645;
+        text-decoration: underline;
+    }
+
+    .form-control,
+    #contact-page output {
+        display: block;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+    }
+
+    .form-control {
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 2px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+
+    .form-control:focus {
+        border-color: #5bc0de;
+        outline: 0;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+            0 0 8px rgba(91, 192, 222, 0.6);
+    }
+
+    // Validation error state: highlight invalid fields in red
+    .form-control.has-error {
+        border-color: #d24d57;
+        box-shadow: inset 0 1px 1px rgba(210, 77, 87, 0.075),
+            0 0 8px rgba(210, 77, 87, 0.6);
+    }
+
+    .form-control.has-error:focus {
+        border-color: #d24d57;
+        box-shadow: inset 0 1px 1px rgba(210, 77, 87, 0.075),
+            0 0 8px rgba(210, 77, 87, 0.6);
+    }
+
+    textarea#message {
+        min-height: 100px;
+        height: 100px;
+        resize: both;
+    }
+
+    // Below 992px: match legacy control heights but keep them fluid in width
+    @media (max-width: 991px) {
+        input#name.form-control,
+        input#company.form-control,
+        input#email.form-control,
+        input#telephone.form-control {
+            height: 47px;
+            padding: 5px 15px;
+            border-width: 0.571px;
+        }
+
+        textarea#message.form-control {
+            min-height: 100px;
+            height: 100px;
+            padding: 5px 15px;
+            border-width: 0.571px;
+        }
+    }
+
+    label.pretty-checkbox {
+        line-height: 32px;
+        cursor: pointer;
+    }
+
+    label.pretty-checkbox .button {
+        border-radius: 3px;
+        border: 3px solid #333645;
+        height: 32px;
+        width: 32px;
+        position: relative;
+        float: left;
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    label.pretty-checkbox .button i,
+    label.pretty-checkbox .button span {
+        display: none;
+        line-height: 26px;
+        text-align: center;
+        font-size: 22px;
+        border-radius: 50%;
+    }
+
+    label.pretty-checkbox .button [type='checkbox'] {
+        display: none;
+    }
+
+    label.pretty-checkbox.active .button {
+        background-color: #333645;
+    }
+
+    // Use Material Design icon for tick, matching legacy site
+    .mdi-action-done {
+        display: block;
+        line-height: 26px;
+        font-size: 22px;
+    }
+
+    .mdi-action-done::before {
+        font-family: "Material-Design-Icons" !important;
+        font-style: normal;
+        font-weight: normal;
+        display: block;
+        content: "\E623";
+    }
+
+    // Only show the tick when the checkbox is active
+    label.pretty-checkbox .mdi-action-done {
+        display: none;
+    }
+
+    label.pretty-checkbox.active .mdi-action-done {
+        display: block;
+        color: #fff;
+    }
+
+    .action-block {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 0;
+        margin-top: 0;
+        line-height: 1.42857143;
+    }
+
+    .action-block .helper-text {
+        margin-left: auto;
+        margin-bottom: 15px;
+        padding-right: 50px;
+        padding-left: 20px;
+        text-align: right;
+        line-height: 1.42857143;
+        font-size: 85%;
+        color: #333645;
+    }
+
+    #form-status {
+        margin-top: 10px;
+        font-size: 0.875rem;
+    }
+
+    #form-status.status-error {
+        color: #a52828;               // dark red text
+        background-color: #fdecea;    // light red background
+        padding: 0px 10px;
+        margin-left: -30px;
+        margin-top: -30px;
+        border-radius: 3px;
+    }
+
+    #form-status.status-success {
+        color: #1b5e20;               // dark green text
+        background-color: #e8f5e9;    // light green background
+        padding: 14px 10px;
+        margin-left: -30px;
+        margin-top: -30px;
+        border-radius: 3px;
+    }
+
+    .btn.btn-primary.submit-btn {
+        display: inline-block;
+        margin-bottom: 0;
+        height: auto;
+        line-height: 35px;
+        padding: 5px 15px;
+        font-size: 1.063rem;
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        white-space: normal;
+        text-transform: uppercase;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        color: #fff;
+        background-color: #333645;
+        border-color: #333645;
+    }
+
+    .btn-web {
+        display: inline-block;
+        color: #fff;
+        background-color: #926fb1;
+        border-color: #926fb1;
+        border-radius: 3px;
+        text-transform: uppercase;
+        line-height: 35px;
+        padding: 5px 30px;
+        height: 46.14px;
+        text-decoration: none;
+    }
+
+    .btn-web:hover,
+    .btn-web:focus,
+    .btn-web:active {
+        color: #fff;
+        background-color: #7e57a0;
+        border-color: #735093;
+        text-decoration: none;
+    }
+
+    .text-web {
+        color: #926fb1;
+    }
+
+    .php-error {
+        margin: 5px 0 0;
+        font-size: 0.8125rem;
+    }
+
+    .checkbox-left {
+        display: table-cell;
+        vertical-align: top;
+        width: 52px;
+        height: 96px;
+        padding-right: 0;
+    }
+
+    // Base media-object layout for consent checkbox text
+    label.pretty-checkbox .media {
+        display: table;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    label.pretty-checkbox .media-body {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    // Below 1260px: allow checkbox column height to shrink with content
+    @media (max-width: 1259px) {
+        .checkbox-left {
+            height: auto;
+            vertical-align: top;
+        }
+    }
+
+    // 992px and up: make form columns flex-based and fluid
+    @include mq.set-breakpoint('992') {
+        #contact-form .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding-left: 0;
+            padding-right: 0;
+            box-sizing: border-box;
+            height: auto;
+        }
+
+        .col-md-6 > .form-group,
+        .form-group.message-group,
+        .form-group.consent-group,
+        label.pretty-checkbox,
+        label.pretty-checkbox .media,
+        label.pretty-checkbox .media-body {
+            width: 100%;
+        }
+
+        input#name.form-control,
+        input#company.form-control,
+        input#email.form-control,
+        input#telephone.form-control,
+        textarea#message.form-control {
+            width: 100%;
+            max-width: 100%;
+            height: 47px;
+        }
+
+        textarea#message.form-control {
+            height: 100px;
+        }
+    }
+
+    // 1260px and up: reapply pixel-perfect desktop widths
+    @include mq.set-breakpoint('1260') {
+        .col-md-6 {
+            flex: 0 0 340px;
+            max-width: 340px;
+            padding-left: 0;
+            padding-right: 0;
+            height: 89.857px;
+            box-sizing: content-box;
+        }
+
+        .col-md-6 > .form-group {
+            width: 340px;
+            min-height: 74.86px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .form-group.message-group {
+            width: 710px;
+            min-height: 127.857px;
+            height: auto;
+        }
+
+        .form-group.consent-group {
+            width: 710px;
+            min-height: 111.857px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        input#name.form-control,
+        input#company.form-control,
+        input#email.form-control,
+        input#telephone.form-control {
+            width: 340px;
+            height: 47px;
+            padding: 5px 15px;
+            border-width: 0.571px;
+        }
+
+        textarea#message.form-control {
+            width: 710px;
+            max-width: 710px;
+            height: 100px;
+            padding: 5px 15px;
+            border-width: 0.571px;
+        }
+
+        #contact-form .row > .col-md-6:nth-child(odd) {
+            margin-right: 30px;
+        }
+
+        label.pretty-checkbox {
+            width: 710px;
+            height: 106.857px;
+            margin-bottom: 5px;
+        }
+
+        label.pretty-checkbox .media {
+            width: 710px;
+            display: table;
+            overflow: hidden;
+        }
+
+        label.pretty-checkbox .media-body {
+            width: 658px;
+            height: 96px;
+            display: table-cell;
+            vertical-align: top;
+        }
+    }
+
+    // 992px–1259px: inner gutters between the two columns
+    @media (min-width: 992px) and (max-width: 1259px) {
+        #contact-form .row > .col-md-6:nth-child(odd) .form-group {
+            padding-right: 15px; // Your Name, Your Email
+        }
+
+        #contact-form .row > .col-md-6:nth-child(even) .form-group {
+            padding-left: 15px; // Company Name, Your Telephone Number
+        }
+    }
+
+    @media (max-width: 991px) {
+        .hidden-xs.breadcrumb-container {
+            border-top: 1px solid #333645;
+        }
+
+        .page-head {
+            background-color: #333645;
+            margin-top: -50px;
+            margin-bottom: 50px;
+        }
+
+        .page-head h1 {
+            color: #fff;
+        }
+
+        // Match desktop alignment: button and helper text on one row,
+        // vertically centered, with helper text pushed to the right.
+        .action-block {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .action-block .helper-text {
+            margin-left: auto;
+            margin-top: 0;
+            align-self: center;
+            text-align: right;
+        }
+    }
+
+    // Out-of-hours chevron icon: force legacy font + dark colour
+    .accordion.out-of-hours .question a em.fa-chevron-down {
+        color: #333645;
+        text-decoration: none !important;
+        font-family: "FontAwesome";
+        font-weight: normal;
+    }
+}

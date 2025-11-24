@@ -64,10 +64,17 @@
     border-color: #999aa2;
     color: color.$text--light;
     grid-area: contact;
+    text-decoration: none;
 
-    &:hover{
+    &:hover,
+    &:focus {
         background-color: #84858f;
         border-color: #84858f;
+        text-decoration: none;
+    }
+
+    &:visited {
+        text-decoration: none;
     }
 }
 

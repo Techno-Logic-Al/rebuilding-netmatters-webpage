@@ -1,20 +1,14 @@
-
-
-
 @use 'modern-normalize';
 
+@use './owl-carousel';
 
 @use './fontawesome/variables' with (
-
   $font-path: '../assets/fonts',
 );
 
-
 @use './fontawesome/fontawesome';
 
-
 @use './fontawesome/fa' as fa;
-
 
 @use './fontawesome/solid' as fa-solid;
 @use './fontawesome/brands' as fa-brands;
