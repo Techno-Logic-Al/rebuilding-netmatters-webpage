@@ -89,6 +89,6 @@
         <script src="assets/js/hero-slider.js"></script>
         <script src="assets/js/affiliates-carousel.js"></script>
         <script src="assets/js/news-interactions.js"></script>
-        <script src="assets/js/contact.js"></script>
+        <script src="assets/js/contact.js?v=2"></script>
     </body>
     </html>
