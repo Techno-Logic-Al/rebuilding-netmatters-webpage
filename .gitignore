@@ -1,0 +1,19 @@
+# Environment and credentials
+.env
+
+# Dependency/build artifacts
+vendor/
+node_modules/
+dist/
+build/
+
+# IDE/editor cruft
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+*.log
+
+# Sass cache
+.sass-cache/

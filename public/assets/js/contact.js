@@ -1,6 +1,7 @@
 (() => {
     const form = document.getElementById('contact-form');
     const statusEl = document.getElementById('form-status');
+    let hasSubmitted = false;
 
     const setError = (fieldName, message) => {
         const field = document.getElementById(fieldName);
@@ -88,6 +89,11 @@
         if (!input) return;
 
         input.addEventListener('input', () => {
+            // Do not show validation until after the first submit attempt
+            if (!hasSubmitted) {
+                return;
+            }
+
             const value = input.value.trim();
             const message = validator(value);
             setError(fieldId, message);
@@ -113,6 +119,7 @@
     if (form) {
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
+            hasSubmitted = true;
             // Clear field errors and previous status before validating
             clearErrors();
 
@@ -159,6 +166,7 @@
                             data.message || 'Your message has been sent!';
                     }
                     form.reset();
+                    hasSubmitted = false;
                     // Reset pretty checkbox visual state
                     const prettyCheckboxLabel = document.querySelector(
                         '#contact-form label.pretty-checkbox'

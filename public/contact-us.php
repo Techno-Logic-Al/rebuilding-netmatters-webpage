@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/includes/db.php';
+require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'bootstrap.php';
 
 $errors = [
     'name' => '',
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-include __DIR__ . '/includes/header.php';
+include APP_PATH . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'header.php';
 ?>
         <main id="contact-page">
             <div id="middle">
@@ -372,4 +372,4 @@ include __DIR__ . '/includes/header.php';
                 </div>
             </div>
         </main>
-<?php include __DIR__ . '/includes/footer.php'; ?>
+<?php include APP_PATH . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'footer.php'; ?>

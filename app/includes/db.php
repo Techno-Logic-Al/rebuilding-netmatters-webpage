@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-$envFile = dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env';
+$envRoot = defined('PROJECT_ROOT') ? PROJECT_ROOT : dirname(__DIR__, 2);
+$envFile = $envRoot . DIRECTORY_SEPARATOR . '.env';
 
 if (is_readable($envFile)) {
     $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);

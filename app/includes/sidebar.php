@@ -1,8 +1,10 @@
 <?php
 declare(strict_types=1);
 
-$root = dirname(__DIR__);
-$indexFile = $root . DIRECTORY_SEPARATOR . 'index.php.html';
+$templateRoot = defined('TEMPLATE_PATH')
+    ? TEMPLATE_PATH
+    : dirname(__DIR__) . DIRECTORY_SEPARATOR . 'templates';
+$indexFile = $templateRoot . DIRECTORY_SEPARATOR . 'index.html';
 
 if (!is_readable($indexFile)) {
     return;

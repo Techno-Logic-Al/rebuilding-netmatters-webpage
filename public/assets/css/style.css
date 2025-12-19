@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 *,
 ::before,
 ::after {
@@ -8547,7 +8547,7 @@ summary {
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: url("../assets/fonts/fa-solid-900.woff2");
+  src: url("../fonts/fa-solid-900.woff2");
 }
 .fas {
   --fa-family: var(--fa-family-classic);
@@ -8572,7 +8572,7 @@ summary {
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url("../assets/fonts/fa-brands-400.woff2");
+  src: url("../fonts/fa-brands-400.woff2");
 }
 .fab,
 .fa-brands,
@@ -10782,21 +10782,21 @@ summary {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../assets/fonts/poppins-v15-latin-regular.woff2") format("woff2");
+  src: url("../fonts/poppins-v15-latin-regular.woff2") format("woff2");
 }
 @font-face {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("../assets/fonts/poppins-v15-latin-600.woff2") format("woff2");
+  src: url("../fonts/poppins-v15-latin-600.woff2") format("woff2");
 }
 @font-face {
   font-family: "Poppins";
   font-style: italic;
   font-weight: 600;
   font-display: swap;
-  src: url("../assets/fonts/poppins-v15-latin-600italic.woff2") format("woff2");
+  src: url("../fonts/poppins-v15-latin-600italic.woff2") format("woff2");
 }
 /* Optional medium weight if used */
 @font-face {
@@ -10804,33 +10804,33 @@ summary {
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("../assets/fonts/poppins-medium-webfont.woff2") format("woff2");
+  src: url("../fonts/poppins-medium-webfont.woff2") format("woff2");
 }
 /* Icomoon icon font for mobile header phone icon */
 @font-face {
   font-family: "icomoon";
-  src: url("../assets/fonts/icomoon.ttf") format("truetype");
+  src: url("../fonts/icomoon.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Material-Design-Icons";
-  src: url("../assets/fonts/Material-Design-Icons.woff") format("woff"), url("../assets/fonts/Material-Design-Icons.ttf") format("truetype"), url("../assets/fonts/Material-Design-Icons.eot");
+  src: url("../fonts/Material-Design-Icons.woff") format("woff"), url("../fonts/Material-Design-Icons.ttf") format("truetype"), url("../fonts/Material-Design-Icons.eot");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "FontAwesome";
-  src: url("../assets/fonts/fontawesome-webfont.woff") format("woff");
+  src: url("../fonts/fontawesome-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Glyphicons Halflings";
-  src: url("../assets/fonts/glyphicons-halflings-regular.woff") format("woff");
+  src: url("../fonts/glyphicons-halflings-regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -12712,7 +12712,7 @@ body.sidebar-active #site-wrapper::after {
   position: relative;
 }
 .sidebar > ul > li > .sub-menu-banner > ul > li > a:before {
-  content: "»";
+  content: "Â»";
   padding-right: 15px;
 }
 .sidebar > ul > li > .sub-menu-banner > ul > li > a .link-icon,
@@ -14236,7 +14236,7 @@ article[data-news-type=careers] .news-readmore {
   display: inline-block;
 }
 #contact-page .hidden-xs.breadcrumb-container .breadcrumb > li + li::before {
-  content: "/ ";
+  content: "/Â ";
   padding: 0 5px;
   color: #333645;
 }

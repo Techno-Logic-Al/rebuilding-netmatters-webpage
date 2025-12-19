@@ -4,7 +4,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/style.css">
+        <link
+            rel="stylesheet"
+            href="<?php echo htmlspecialchars(BASE_PATH . 'assets/css/style.css', ENT_QUOTES); ?>"
+        >
         <title>Full Service Digital Agency | Cambridgeshire & Norfolk | Netmatters</title>
     </head>
     <body class="">
@@ -22,13 +25,13 @@
             <header id="site-header">
                 <div id="header-top">
                     <div class="container">
-                        <a href="index.php" id="header-logo"><img src="assets/images/netmatters/f-logo.webp" alt="Netmatters Black Logo"></a>
+                        <a href="<?php echo htmlspecialchars(BASE_PATH . 'index.php', ENT_QUOTES); ?>" id="header-logo"><img src="assets/images/netmatters/f-logo.webp" alt="Netmatters Black Logo"></a>
                         <span id="header-icon" class="icon-phone_in_talk"></span>
                         <div id="header-support">
                             <i class="fa-solid fa-mouse"></i>
                             <p>Support</p>
                         </div>
-                        <a href="contact-us.php" id="header-contact">
+                        <a href="<?php echo htmlspecialchars(BASE_PATH . 'contact-us.php', ENT_QUOTES); ?>" id="header-contact">
                             <i class="fa-solid fa-paper-plane"></i>
                             <p>Contact</p>
                         </a>

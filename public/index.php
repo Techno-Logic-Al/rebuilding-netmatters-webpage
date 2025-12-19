@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/includes/db.php';
+require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'bootstrap.php';
 
 function renderNewsSection(mysqli $mysqli): string
 {
@@ -64,7 +64,7 @@ function renderNewsSection(mysqli $mysqli): string
                 </section>';
 }
 
-$indexFile = __DIR__ . '/index.php.html';
+$indexFile = TEMPLATE_PATH . DIRECTORY_SEPARATOR . 'index.html';
 $mainHtml = '';
 
 if (is_readable($indexFile)) {
@@ -96,7 +96,7 @@ if (is_readable($indexFile)) {
     }
 }
 
-include __DIR__ . '/includes/header.php';
+include APP_PATH . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'header.php';
 echo $mainHtml;
-include __DIR__ . '/includes/footer.php';
+include APP_PATH . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'footer.php';
 
